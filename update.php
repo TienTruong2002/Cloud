@@ -103,6 +103,13 @@ $row = $result->fetch_assoc();
                 <input type="submit" name="btnAddProduct" value="Submit" class="btn btn-primary">
             </div>
         </div>
+        <hr class="my-4">
+
+        <div class="pt-5">
+             <h6 class="mb-0"><a href="index.php" class="text-body">
+                <i class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
+            </h6>
+        </div>
     </form>
 </div>
 

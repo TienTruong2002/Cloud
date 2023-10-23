@@ -28,7 +28,7 @@ if(isset ($_POST ['btnLogin'])){
             echo "Login successfully";
             setcookie("cc_uname",$row['uname'], time()+3600);
             //setcookie("cc_id", $row['id'], time()+3600);
-            header("Location: home.php");
+            header("Location: index.php");
         }
         else{
             echo "Something wrong with your info<br>";
@@ -47,8 +47,9 @@ if(isset ($_POST ['btnLogin'])){
         font-size: 50px;
     }
     body{
-        background-image: url(https://wallpaperaccess.com/full/5241299.jpg);
+        background-image: url(https://wallpapercave.com/dwp1x/wp2593531.jpg);
         background-repeat: no-repeat;
+        background-size: cover;
     }
     .container{
         padding: 0;

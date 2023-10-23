@@ -27,7 +27,7 @@
     <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
-                <a href="home.php" class="navbar-brand">Bin Store</a>
+                <a href="index.php" class="navbar-brand">ATN Store</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navsup">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -57,7 +57,7 @@
                         //session_start();
                         if (isset($_COOKIE['cc_uname'])) :
                         ?>
-                            <a href="home.php" class="nav-item nav-link">Welcome, <?= $_COOKIE['cc_uname'] ?></a>
+                            <a href="index.php" class="nav-item nav-link">Welcome, <?= $_COOKIE['cc_uname'] ?></a>
                             <a href="logout.php" class="nav-item nav-link">logout</a>
                         <?php
                         else :
