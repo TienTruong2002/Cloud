@@ -5,6 +5,7 @@ $c = new Connect();
 $blink = $c->ConnectToMySQL();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $product_id = $_POST['pid'];
     $product_name = $_POST['pname'];
     $price = $_POST['pprice'];
     $quantity = $_POST['pquan'];
@@ -14,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $catID = $_POST['catid'];
 
     $sql = " UPDATE `product` SET
+     `pid`=' $product_id',
      `pname`=' $product_name',
      `pprice`='$price',
      `pquan`=' $quantity',
@@ -39,6 +41,12 @@ $row = $result->fetch_assoc();
 
 <div class="container">
     <form class="form form-vertical" method="POST" action="#" enctype="multipart/form-data">
+    <div class="row mx-auto">
+            <div>
+                <label for="product_id">Product ID</label>
+                <input id="pid" type="text" name="pid" class="form-control" value="<?= $row['pid'] ?>" required>
+            </div>
+        </div>
         <div class="row mb-3">
 
             <label for="product_name">Product Name:</label>
@@ -94,7 +102,7 @@ $row = $result->fetch_assoc();
 
             <label for="image_url">Image:</label>
             <div class="col-sm-10">
-                <input id="pimg" type="file" name="pimage" class="form-control" value="<?= $row['pimg'] ?>" required>
+                <input id="pimg" type="text" name="pimg" class="form-control" value="<?= $row['pimg'] ?>" required>
             </div>
         </div>
         <br>
