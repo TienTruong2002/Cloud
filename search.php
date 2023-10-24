@@ -49,12 +49,12 @@ require_once('connect.php');
                                 <?= $r['pprice'] ?>
                             </small></p>
 
-                        <div class="row add-to-cart mx-auto">
+                        <!-- <div class="row add-to-cart mx-auto">
                             <button class="btn btn-warning btn-rounded-pill mx-auto">
                                 <a href="cart.php?id=<?= $r['pid'] ?>" class="text-decoration-none text-black">Add to cart<i
                                         class="fas fa-shopping-cart"></i></a>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

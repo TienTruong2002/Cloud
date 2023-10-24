@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      `pprice`='$price',
      `pquan`=' $quantity',
      `pdesc`='$des',
-     `pimg`='$img',
+     `pimage`='$img',
      `pdate`='$date',
      `catid`='$catID' 
      WHERE pid = $product_id";
@@ -40,83 +40,86 @@ $row = $result->fetch_assoc();
 ?>
 
 <div class="container">
+    <h2>Product Update</h2>
     <form class="form form-vertical" method="POST" action="#" enctype="multipart/form-data">
-    <div class="row mx-auto">
-            <div>
-                <label for="product_id">Product ID</label>
-                <input id="pid" type="text" name="pid" class="form-control" value="<?= $row['pid'] ?>" required>
-            </div>
-        </div>
         <div class="row mb-3">
+            <div class="row mb-3">
+                <label for="product_id">Product ID:</label>
+                <div class="col-sm-10">
+                    <input id="pid" type="text" name="pid" class="form-control" value="<?= $row['pid'] ?>" required>
+                </div>
+            </div>
+            <div class="row mb-3">
 
-            <label for="product_name">Product Name:</label>
-            <div class="col-sm-10">
-                <input id="pname" type="text" name="pname" class="form-control" value="<?= $row['pname'] ?>" required>
+                <label for="product_name">Product Name:</label>
+                <div class="col-sm-10">
+                    <input id="pname" type="text" name="pname" class="form-control" value="<?= $row['pname'] ?>" required>
+                </div>
+
+            </div>
+            <div class="row mb-3">
+
+                <label for="description">Description:</label>
+                <div class="col-sm-10">
+                    <input id="pdesc" type="text" name="pdesc" class="form-control" value="<?= $row['pdesc'] ?>" required>
+                </div>
+
+            </div>
+            <div class="row mb-3">
+
+                <label for="price">Price:</label>
+                <div class="col-sm-10">
+                    <input id="pprice" type="text" name="pprice" class="form-control" value="<?= $row['pprice'] ?>" required>
+                </div>
+
+            </div>
+            <div class="row mb-3">
+
+                <label for="stock_quantity">Quantity:</label>
+                <div class="col-sm-10">
+                    <input id="pquan" type="text" name="pquan" class="form-control" value="<?= $row['pquan'] ?>" required>
+                </div>
+
+            </div>
+            <div class="row mb-3">
+                <!-- <div class="row mb-3"> -->
+
+                <label for="image_url">Catid:</label>
+                <div class="col-sm-10">
+                    <input id="catid" type="text" name="catid" class="form-control" value="<?= $row['catid'] ?>" required>
+                </div>
+
+            </div>
+            <div class="row mb-3">
+                <!-- <div class="row mb-3"> -->
+
+                <label for="image_url">Date:</label>
+                <div class="col-sm-10">
+                    <input id="pdate" type="text" name="pdate" class="form-control" value="<?= $row['pdate'] ?>" required>
+                </div>
             </div>
 
-        </div>
-        <div class="row mb-3">
+            <div class="row mb-3">
+                <!-- <div class="row mb-3"> -->
 
-            <label for="description">Description:</label>
-            <div class="col-sm-10">
-                <input id="pdesc" type="text" name="pdesc" class="form-control" value="<?= $row['pdesc'] ?>" required>
+                <label for="image_url">Image:</label>
+                <div class="col-sm-10">
+                    <input id="pimage" type="text" name="pimage" class="form-control" value="<?= $row['pimage'] ?>" required>
+                </div>
             </div>
-
-        </div>
-        <div class="row mb-3">
-
-            <label for="price">Price:</label>
-            <div class="col-sm-10">
-                <input id="pprice" type="text" name="pprice" class="form-control" value="<?= $row['pprice'] ?>" required>
+            <br>
+            <div class="row mb-3">
+                <div class="col-2 mx-auto">
+                    <input type="submit" name="btnAddProduct" value="Submit" class="btn btn-primary">
+                </div>
             </div>
+            <hr class="my-4">
 
-        </div>
-        <div class="row mb-3">
-
-            <label for="stock_quantity">Quantity:</label>
-            <div class="col-sm-10">
-                <input id="pquan" type="text" name="pquan" class="form-control" value="<?= $row['pquan'] ?>" required>
+            <div class="pt-5">
+                <h6 class="mb-0"><a href="index.php" class="text-body">
+                        <i class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
+                </h6>
             </div>
-
-        </div>
-        <div class="row mb-3">
-            <!-- <div class="row mb-3"> -->
-
-            <label for="image_url">Catid:</label>
-            <div class="col-sm-10">
-                <input id="catid" type="text" name="catid" class="form-control" value="<?= $row['catid'] ?>" required>
-            </div>
-
-        </div>
-        <div class="row mb-3">
-            <!-- <div class="row mb-3"> -->
-
-            <label for="image_url">Date:</label>
-            <div class="col-sm-10">
-                <input id="pdate" type="text" name="pdate" class="form-control" value="<?= $row['pdate'] ?>" required>
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <!-- <div class="row mb-3"> -->
-
-            <label for="image_url">Image:</label>
-            <div class="col-sm-10">
-                <input id="pimg" type="text" name="pimg" class="form-control" value="<?= $row['pimg'] ?>" required>
-            </div>
-        </div>
-        <br>
-        <div class="row mb-3">
-            <div class="col-2 mx-auto">
-                <input type="submit" name="btnAddProduct" value="Submit" class="btn btn-primary">
-            </div>
-        </div>
-        <hr class="my-4">
-
-        <div class="pt-5">
-             <h6 class="mb-0"><a href="index.php" class="text-body">
-                <i class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
-            </h6>
         </div>
     </form>
 </div>
