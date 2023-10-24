@@ -94,7 +94,7 @@ $row = $result->fetch_assoc();
 
             <label for="image_url">Image:</label>
             <div class="col-sm-10">
-                <input id="pimg" type="file" name="pimage" class="form-control" value="<?= $row['pimage'] ?>" required>
+                <input id="pimg" type="file" name="pimage" class="form-control" value="<?= $row['pimg'] ?>" required>
             </div>
         </div>
         <br>
