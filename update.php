@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $img = $_POST['pimage'];
     $date = $_POST['pdate'];
     $catID = $_POST['catid'];
+    $sid = $_POST['sid'];
 
     $sql = " UPDATE `product` SET
      `pid`=' $product_id',
@@ -22,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      `pdesc`='$des',
      `pimage`='$img',
      `pdate`='$date',
-     `catid`='$catID' 
+     `catid`='$catID',
+     `sid`='$sid'
      WHERE pid = $product_id";
 
     if ($blink->query($sql) === true) {
@@ -33,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $product_id = $_GET['id'];
-$sql = "SELECT * FROM product WHERE pid = '$product_id'";
+$sql = "SELECT * FROM product p, shop s WHERE p.sid=s.id and pid = '$product_id'";
 $result = $blink->query($sql);
 $row = $result->fetch_assoc();
 
@@ -105,6 +107,20 @@ $row = $result->fetch_assoc();
                 <label for="image_url">Image:</label>
                 <div class="col-sm-10">
                     <input id="pimage" type="text" name="pimage" class="form-control" value="<?= $row['pimage'] ?>" required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                
+                <div class="col-sm-10">
+                <label for="sid" class="col-sm-2">Store:</label>
+                <select name="sid" id="sid" class="form-select">
+                        <option selected value="<?= $row['sid'] ?>"><?= $row['name']?></option>
+                        <option value="1">ATN Nguyen Trai</option>
+                        <option value="2">ATN Su Van Hanh</option>
+                        <option value="3">ATN </option>
+                        <option value="4">ATN Mau Than</option>
+                    </select>
                 </div>
             </div>
             <br>

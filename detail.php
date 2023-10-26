@@ -31,7 +31,7 @@ $dbLink = $c->connectToMySQL();
         require_once 'connect.php';
         $conn = new Connect();
         $db_link = $conn->connectToPDO();
-        $sql = "SELECT * FROM product WHERE pid=?";
+        $sql = "SELECT * FROM product p, shop s WHERE p.sid=s.id and pid=?";
         $stmt = $db_link->prepare($sql);
         $stmt->execute(array($pid));
         $re = $stmt->fetch(PDO::FETCH_BOTH);
@@ -46,6 +46,10 @@ $dbLink = $c->connectToMySQL();
                 Quantity: <?= $re['pquan'] ?>
                 <br>
                 Description: <?= $re['pdesc'] ?>
+                <br>
+                Store: <?= $re['name'] ?>
+                <br>
+                Address: <?= $re['address'] ?>
             </div>
             <button type="submit" name="btnAdddelete" class="btn btn-dange mx-3">
                 <!-- <a href="cart.php?id=<?=$row['pid']?>" class="text-decoration-none text-black">Add to cart</a><i class="fas fa-shopping-cart"></i> -->

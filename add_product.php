@@ -15,12 +15,12 @@ if (isset($_POST['btnAddProduct'])) {
     $flag = move_uploaded_file($_FILES['pimage']['tmp_name'], $imgdir . $pimage);
     $pdate = date('Y-m-d');  // Use the current date
     $catid = $_POST['catid'];
-
+    $sid = $_POST['$sid'];
 
     if ($flag) {
-        $sql = "INSERT INTO product (pname, pprice, pquan, pdesc, pimage, pdate, catid) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO product (pname, pprice, pquan, pdesc, pimage, pdate, catid, sid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $re = $dbLink->prepare($sql);
-        $re->execute([$pname, $pprice, $pquan, $pdesc, $pimage, $pdate, $catid]);
+        $re->execute([$pname, $pprice, $pquan, $pdesc, $pimage, $pdate, $catid, $sid]);
 
         echo "Product added successfully.";
     } else {
@@ -93,6 +93,18 @@ $re = $dbLink->query($sql);
                 </div>
             </div>
 
+            <div class="row mb-3">
+                <label for="sid" class="col-sm-2">Store:</label>
+                <div class="col-sm-10">
+                    <select name="sid" id="sid" class="form-select">
+                        <option selected>Select Store</option>
+                        <option value="1">ATN Nguyen Trai</option>
+                        <option value="2">ATN Su Van Hanh</option>
+                        <option value="3">ATN </option>
+                        <option value="4">ATN Mau Than</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div class="row mb-3">
             <div class="col-2 mx-auto">
@@ -102,8 +114,8 @@ $re = $dbLink->query($sql);
         <hr class="my-4">
 
         <div class="pt-5">
-             <h6 class="mb-0"><a href="index.php" class="text-body">
-                <i class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
+            <h6 class="mb-0"><a href="index.php" class="text-body">
+                    <i class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
             </h6>
         </div>
     </form>
