@@ -15,7 +15,7 @@ if (isset($_POST['btnAddProduct'])) {
     $flag = move_uploaded_file($_FILES['pimage']['tmp_name'], $imgdir . $pimage);
     $pdate = date('Y-m-d');  // Use the current date
     $catid = $_POST['catid'];
-    $sid = $_POST['$sid'];
+    $sid = $_POST['sid'];
 
     if ($flag) {
         $sql = "INSERT INTO product (pname, pprice, pquan, pdesc, pimage, pdate, catid, sid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
