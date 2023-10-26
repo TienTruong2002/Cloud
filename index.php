@@ -15,7 +15,7 @@ if ($re->num_rows > 0) {
             while ($row = $re->fetch_assoc()) {
             ?>
 
-                <div class="card mb-3 col-3 mx-auto" style="width: 18rem;">
+                <div class="card mb-3 col-3 mx-auto my-3" style="width: 18rem;">
                     <img src="img/<?= $row['pimage'] ?>" class="card-img-top" alt="...">
                     <div class="card-body">
 
